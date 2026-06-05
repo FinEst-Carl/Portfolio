@@ -5,9 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="media/CP_Logo.svg?v=1" type="image/svg+xml">
     <title>Carl Pellja</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-    <object id="mySvg" data="media/CP_Logo_simple_r.svg" type="image/svg+xml"></object>
-    <script src="js/script.js"></script>
+     <main class="logo-stage">
+ 
+    <!-- Kalligrafinen SVG-logo -->
+    <div class="logo-wrapper">
+      <svg
+        id="cp-logo"
+        viewBox="0 0 1000 1000"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="xMidYMid meet"
+        aria-label="CP Logo"
+      >
+        <defs>
+          <!-- Kalligrafinen sivellin: vaihteleva viivan paksuus -->
+          <filter id="calligraphy-blur" x="-5%" y="-5%" width="110%" height="110%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="4" seed="2" result="noise"/>
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.2" xChannelSelector="R" yChannelSelector="G"/>
+          </filter>
+        </defs>
+ 
+        <g transform="matrix(0.98086,0,0,1.04145,-0.531807,-36.5057)">
+ 
+          <!-- Pystyviiva — lyhyt, piirtyy toisena -->
+          <g transform="matrix(1.38328,0,0,1.4429,-184.407,-314.349)">
+            <path
+              id="stroke-vertical"
+              d="M615.062,489.23C615.048,488.255 614.908,741.989 614.908,811.429"
+              class="logo-stroke stroke-vertical"
+            />
+          </g>
+ 
+          <!-- Pääkaari — pisin, piirtyy ensin -->
+          <path
+            id="stroke-main"
+            d="M411.088,267.399C404.96,260.204 350.686,166.443 230.737,174.405C141.777,180.309 41.807,255.973 38.725,391.561C36.53,488.149 87.884,597.574 230.737,608.718C299.564,614.088 366.741,572.125 391.193,544.261C413.684,518.633 607.999,266.223 630.281,237.235C685.258,165.713 772.809,173.8 783.782,174.405C901.011,180.86 978.725,293.029 975.775,390.748C972.888,486.388 905.685,606.136 783.782,608.718C670.755,611.113 607.588,513.553 599.66,503.297"
+            class="logo-stroke stroke-main"
+          />
+ 
+        </g>
+      </svg>
+    </div>
+ 
+    <!-- Nimi logon alla, ilmestyy animaation jälkeen -->
+    <p class="logo-name">Carl Pellja</p>
+ 
+  </main>
+ 
+  <script src="js/scripts.js"></script>
 </body>
 </html>
