@@ -49,10 +49,10 @@
    */
   function animateMainStroke(el, totalLength) {
     const segments = [
-      { end: 0.25, duration: 800,  ease: "cubic-bezier(0.6, 0, 0.4, 1)" },
-      { end: 0.60, duration: 650,  ease: "cubic-bezier(0.2, 0, 0.1, 1)" },
-      { end: 0.80, duration: 900,  ease: "cubic-bezier(0.7, 0, 0.4, 1)" },
-      { end: 1.00, duration: 480,  ease: "cubic-bezier(0.1, 0, 0.05, 1)" },
+      { end: 0.25, duration: 800,  ease: "cubic-bezier(0.8, 0.2, 0.4, 1)" },
+      { end: 0.60, duration: 650,  ease: "cubic-bezier(0.2, 0.2, 0.1, 1)" },
+      { end: 0.80, duration: 900,  ease: "cubic-bezier(0.7, 0.2, 0.4, 1)" },
+      { end: 1.00, duration: 480,  ease: "cubic-bezier(0.1, 0.2, 0.05, 1)" },
     ];
 
     let currentOffset = totalLength; // täysin piilossa aluksi
@@ -94,7 +94,7 @@
 
     setTimeout(() => {
       // Hidas aloitus (sivellin koskettaa paperia), sitten nopea veto alas
-      el.style.transition      = `stroke-dashoffset 680ms cubic-bezier(0.65, 0, 0.2, 1)`;
+      el.style.transition      = `stroke-dashoffset 900ms cubic-bezier(0.65, 0.2, 0.2, 1)`;
       el.style.strokeDashoffset = 0;
     }, startDelay);
   }
