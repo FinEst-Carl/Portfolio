@@ -1,0 +1,117 @@
+/* ─────────────────────────────────────────
+   Pohja & muuttujat
+───────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --ink:    #1a1410;
+  --paper:  #f5f0e8;
+  --accent: #8b6f47;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(139,111,71,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(139,111,71,0.05) 0%, transparent 50%);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* ─────────────────────────────────────────
+   Layout
+───────────────────────────────────────── */
+.logo-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 2rem;
+}
+
+.logo-wrapper {
+  width: min(85vw, 85vh, 600px);
+  position: relative;
+}
+
+.logo-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: -15%;
+  background: radial-gradient(ellipse, rgba(139,111,71,0.10) 0%, transparent 70%);
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+/* ─────────────────────────────────────────
+   SVG — injektoitu sisään
+───────────────────────────────────────── */
+#cp-logo {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  cursor: pointer;
+}
+
+/* ─────────────────────────────────────────
+   Polkujen kalligrafinen tyyli
+   Alkuperäiset polut ovat fill-pohjaisia
+   (Inkscape taper_stroke), joten animoimme
+   clipPath-maskilla vasemmalta oikealle
+───────────────────────────────────────── */
+.logo-path {
+  /* fill säilyy alkuperäisenä (#020202) */
+  opacity: 0;
+  transition: none;
+}
+
+/* ─────────────────────────────────────────
+   Nimi
+───────────────────────────────────────── */
+.logo-name {
+  margin-top: 1.8rem;
+  font-size: clamp(0.9rem, 2.5vw, 1.3rem);
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 0.35em;
+  color: var(--accent);
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+/* ─────────────────────────────────────────
+   Responsiiviinen
+───────────────────────────────────────── */
+@media (max-width: 480px) {
+  .logo-wrapper { width: 90vw; }
+  .logo-name { font-size: 0.8rem; letter-spacing: 0.25em; }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .logo-wrapper { width: auto; height: 70vh; }
+  #cp-logo { width: auto; height: 100%; }
+}
+
+/* ─────────────────────────────────────────
+   Reduced motion
+───────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .logo-path { opacity: 1 !important; }
+  .logo-name { opacity: 1 !important; transform: none !important; }
+}
